@@ -11,7 +11,7 @@ up:
 	${DC} up -d $(c)
 
 down:
-	${DC} down -v $(c)
+	${DC} down $(c)
 
 install:
 	${DC} run --no-deps --rm php composer install
