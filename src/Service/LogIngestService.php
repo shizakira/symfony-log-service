@@ -28,12 +28,7 @@ final readonly class LogIngestService
 
         foreach ($input->logs as $log) {
             $this->bus->dispatch(
-                new LogIngestMessage(
-                    batchId: $batchId,
-                    publishedAt: $publishedAt,
-                    retryCount: 0,
-                    log: $log,
-                ),
+                new LogIngestMessage($log),
                 [
                     new AmqpStamp(
                         'logs.ingest',
